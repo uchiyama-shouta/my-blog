@@ -1,11 +1,17 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "./layout.module.css";
+import { useState } from "react";
 
 const Layout = (props) => {
+	const [isOpened, setIsOpend] = useState(false);
 	const { title, children } = props;
 	const myName = "翔太";
 	const siteTitle = "しょうBlog";
+
+	const isOpenedToggle = () => {
+		setIsOpend(!isOpened);
+	};
 
 	return (
 		<div className={styles.page}>
@@ -21,10 +27,12 @@ const Layout = (props) => {
 							<a>{siteTitle}</a>
 						</Link>
 					</h1>
-					<div className={styles.hamburger}></div>
+					<div className={styles.hamburger}>
+						<button onClick={isOpenedToggle} className={styles.btn}></button>
+					</div>
 				</div>
-
-				<div className={styles.categories}>
+				<div className={!isOpened && styles.blackLine}></div>
+				<div className={isOpened ? styles.show : styles.categories}>
 					<ul>
 						<li>カテゴリー</li>
 						<li>カテゴリー</li>
@@ -32,12 +40,11 @@ const Layout = (props) => {
 						<li>カテゴリー</li>
 					</ul>
 				</div>
-            
 			</header>
 
 			<div className={styles.main}>
 				<main className={styles.content}>
-					{title ? <h1 className={styles.page-title}>{title}</h1> : ``}
+					{title ? <h1 className={styles.page - title}>{title}</h1> : ``}
 					<div className="page-main">{children}</div>
 				</main>
 				<aside className={styles.sidebar}>
@@ -89,6 +96,16 @@ const Layout = (props) => {
 				}
 				* {
 					box-sizing: border-box;
+				}
+				a {
+					color: #0044cc;
+					text-decoration: none;
+				}
+				main a:hover {
+					text-decoration: underline;
+				}
+				main a:visited {
+					color: #551a8b;
 				}
 			`}</style>
 			<style jsx>{``}</style>
