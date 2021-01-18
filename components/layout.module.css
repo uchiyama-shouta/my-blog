@@ -29,16 +29,32 @@
    background-color: #fff;
    border: 1px solid #333;
 }
+
 .hamburgerLine {
    width: 90%;
    height: 2px;
    background-color: #222;
    margin: 0 auto;
 }
-
 .hamburgerLine:not(:last-child) {
    margin-bottom:5px;
 }
+.hamburgerCross {
+   width: 90%;
+   height: 2px;
+   background-color: #222;
+}
+.hamburgerCross:nth-child(1) {
+   transform: rotate(45deg);
+   margin-top: 5px;
+   margin-left: 2px;
+}
+.hamburgerCross:nth-child(2) {
+   transform: rotate(135deg);
+   margin-bottom: 4px;
+   margin-right: 2px;
+}
+
 .categories {
 	width: 100%;
 	min-height: 25px;
