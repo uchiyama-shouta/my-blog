@@ -74,7 +74,8 @@
 }
 .content {
 	max-width: 850px;
-   min-width: 355px;
+   min-width: 350px;
+   padding-right: 5px;
 }
 .sidebar {
 	width: 350px;
@@ -124,24 +125,10 @@
 	.hamburger {
 		display: block;
 		margin: 25px 0;
-	}
-	/* .categories {
-      width: 100%;
-      min-height: 25px;
-      background-color: #222;
-      color: white;
    }
-   .categories ul {
-      width: 80%;
-      margin: 0 auto;
+   .main {
+      display: block;
    }
-   .categories li {
-      display: inline-block;
-      line-height: 60px;
-   }
-   .categories li:not(:first-child) {
-      margin-left: 40px;
-   } */
 	.blackLine {
 		display: block;
 	}
