@@ -18,6 +18,11 @@ export default function Post(params) {
 			<Link href="/">
 				<a>back to home</a>
 			</Link>
+			<style jsx>{`
+				.post-body {
+					margin-bottom: 70px; 
+				}
+			`}</style>
 		</Layout>
 	);
 }
