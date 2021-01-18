@@ -28,7 +28,11 @@ const Layout = (props) => {
 						</Link>
 					</h1>
 					<div className={styles.hamburger}>
-						<button onClick={isOpenedToggle} className={styles.btn}></button>
+						<button onClick={isOpenedToggle} className={styles.btn}>
+							<div className={styles.hamburgerLine}></div>
+							<div className={styles.hamburgerLine}></div>
+							<div className={styles.hamburgerLine}></div>
+						</button>
 					</div>
 				</div>
 				<div className={!isOpened && styles.blackLine}></div>
