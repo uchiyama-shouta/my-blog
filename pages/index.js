@@ -2,7 +2,7 @@ import fs from "fs";
 import Link from "next/link";
 import Layout from "../components/Layout";
 
-import { readContentFiles } from "../lib/content-loader";
+import { readAllContent } from "../lib/content-loader";
 
 export default function Home(props) {
 	const { posts, hasArchive } = props;
@@ -11,9 +11,15 @@ export default function Home(props) {
 			{posts.map((post) => (
 				<div key={post.slug} className="post-teaser">
 					<h2>
-						<Link href="/posts/[id]" as={`/posts/${post.slug}`}>
-							<a>{post.title}</a>
-						</Link>
+						{post.category === null ? (
+							<Link href="/posts/[id]" as={`/posts/${post.slug}`}>
+								<a>{post.title}</a>
+							</Link>
+						) : (
+							<Link href="/posts/categories/[category]/[id]" as={`/posts/categories/${post.category}/${post.slug}`}>
+								<a>{post.title}</a>
+							</Link>
+						)}
 					</h2>
 					<div>
 						<span>{post.published}</span>
@@ -21,23 +27,31 @@ export default function Home(props) {
 				</div>
 			))}
 
-      {hasArchive ? (
-        <div className="home-archive">
-          <Link href="/archive/[page]" as="/archive/1"><a>アーカイブ</a></Link>
-        </div>
-      ) : ``}
+			{hasArchive ? (
+				<div className="home-archive">
+					<Link href="/archive/[page]" as="/archive/1">
+						<a>アーカイブ</a>
+					</Link>
+				</div>
+			) : (
+				``
+			)}
 		</Layout>
 	);
 }
 
 export async function getStaticProps({ params }) {
 	const MAX_COUNT = 6;
-  const posts = await readContentFiles({ fs });
-  const hasArchive = posts.length > MAX_COUNT
+	// const posts = await readContentFiles({ fs });
+	// const programmingPosts = await readProgrammingContentFiles({ fs });
+	// const allPosts = [...posts, ...programmingPosts]
+	const posts = await readAllContent({ fs });
+	const hasArchive = posts.length > MAX_COUNT;
 	return {
 		props: {
-      posts: posts.slice(0, MAX_COUNT),
-      hasArchive,
+			// posts: allPosts.slice(0, MAX_COUNT),
+			posts: posts.slice(0, MAX_COUNT),
+			hasArchive,
 		},
 	};
 }

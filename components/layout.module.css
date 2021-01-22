@@ -71,10 +71,16 @@
 }
 .categories li {
 	display: inline-block;
-	line-height: 60px;
+   line-height: 60px;
+   color: white;
+   font-weight: bold;
 }
 .categories li:not(:first-child) {
 	margin-left: 40px;
+}
+
+.categories li a {
+   color: #fff;
 }
 
 .blackLine {

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./layout.module.css";
 import { useState } from "react";
 
@@ -47,7 +48,11 @@ const Layout = (props) => {
 				<div className={!isOpened && styles.blackLine}></div>
 				<div className={isOpened ? styles.show : styles.categories}>
 					<ul>
-						<li>カテゴリー</li>
+						<li>
+							<Link href="/posts/categories/programming/list">
+								<a>programming</a>
+							</Link>
+						</li>
 						<li>カテゴリー</li>
 						<li>カテゴリー</li>
 						<li>カテゴリー</li>
@@ -63,10 +68,12 @@ const Layout = (props) => {
 				<aside className={styles.sidebar}>
 					<div className={styles.profile}>
 						<div className="">
-							<img
+							<Image
 								src="/images/profile.jpg"
 								className={styles.circle}
 								alt={`${myName}の自画像`}
+								width={150}
+								height={150}
 							/>
 							<p className={styles.myName}>{myName}</p>
 							<p className={styles.introduceMyself}>
