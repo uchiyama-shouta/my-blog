@@ -53,9 +53,6 @@ const Layout = (props) => {
 								<a>programming</a>
 							</Link>
 						</li>
-						<li>カテゴリー</li>
-						<li>カテゴリー</li>
-						<li>カテゴリー</li>
 					</ul>
 				</div>
 			</header>
