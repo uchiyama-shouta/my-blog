@@ -53,6 +53,16 @@ const Layout = (props) => {
 								<a>programming</a>
 							</Link>
 						</li>
+						<li>
+							<Link href="/posts/categories/life/list">
+								<a>life</a>
+							</Link>
+						</li>
+						<li>
+							<Link href="/posts/categories/business/list">
+								<a>business</a>
+							</Link>
+						</li>
 					</ul>
 				</div>
 			</header>

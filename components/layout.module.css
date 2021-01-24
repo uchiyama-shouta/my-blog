@@ -169,13 +169,15 @@
 	}
 	.show ul {
 		padding-top: 50px;
-		margin: 0 auto;
+		margin: 0 0 0 auto;
 		text-align: right;
+		width: 200px;
 	}
 	.show li {
 		display: block;
 		line-height: 60px;
-      margin-right: 20px;
+		margin-right: 20px;
+		text-align: left;
    }
    .show a {
       color: white;
