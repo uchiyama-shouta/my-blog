@@ -124,6 +124,9 @@ const Layout = (props) => {
 				* {
 					box-sizing: border-box;
 				}
+				h1 {
+					margin-bottom: 5px;
+				}
 				a {
 					color: #0044cc;
 					text-decoration: none;
@@ -135,7 +138,6 @@ const Layout = (props) => {
 					color: #551a8b;
 				}
 			`}</style>
-			<style jsx>{``}</style>
 		</div>
 	);
 };
