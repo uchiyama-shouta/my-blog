@@ -37,9 +37,7 @@ export default function Home(props) {
 						<a>アーカイブ</a>
 					</Link>
 				</div>
-			) : (
-				``
-			)}
+			) : null}
 			<style jsx>{`
 				h2 {
 					margin-bottom: 5px;	

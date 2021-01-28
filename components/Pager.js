@@ -26,7 +26,7 @@ const Pager = (props) => {
 						<a>{nextPage}</a>
 					</Link>
 				) : (
-					``
+					null
 				)}
 			</span>
 		</div>
