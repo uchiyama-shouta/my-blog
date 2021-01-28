@@ -65,7 +65,7 @@ export async function getStaticProps({ params }) {
  * 有効な URL パラメータを全件返す
  */
 export async function getStaticPaths() {
-	const posts = await listContentFiles({ fs })
+	const posts = await listContentFiles({ fs });
 	// const posts = await listAllContentFiles({ fs });
 	const pages = range(Math.ceil(posts.length / COUNT_PER_PAGE));
 	const paths = pages.map((page) => ({

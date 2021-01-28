@@ -69,7 +69,7 @@ const Layout = (props) => {
 
 			<div className={styles.main}>
 				<main className={styles.content}>
-					{title ? <h1 className={styles.page - title}>{title}</h1> : ``}
+					{title ? <h1 className={styles.page}>{title}</h1> : ``}
 					<div className="page-main">{children}</div>
 				</main>
 				<aside className={styles.sidebar}>
@@ -95,49 +95,6 @@ const Layout = (props) => {
 				</aside>
 			</div>
 			<footer className={styles.footer}>&copy; {siteTitle}</footer>
-
-			<style jsx global>{`
-				html,
-				body {
-					padding: 0;
-					margin: 0;
-					font-family: sans-serif;
-					color: #222;
-					width: 100vw;
-				}
-				html {
-					width: 100vw;
-				}
-				img,
-				iframe {
-					max-width: 100%;
-				}
-				h1,
-				h2,
-				h3,
-				h4,
-				h5,
-				h6 {
-					font-family: Montserrat, -apple-system, "Segoe UI", "Helvetica Neue",
-						"Hiragino Kaku Gothic ProN", メイリオ, meiryo, sans-serif;
-				}
-				* {
-					box-sizing: border-box;
-				}
-				h1 {
-					margin-bottom: 5px;
-				}
-				a {
-					color: #0044cc;
-					text-decoration: none;
-				}
-				main a:hover {
-					text-decoration: underline;
-				}
-				main a:visited {
-					color: #551a8b;
-				}
-			`}</style>
 		</div>
 	);
 };
