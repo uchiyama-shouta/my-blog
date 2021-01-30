@@ -4,8 +4,6 @@ import Layout from "../../components/Layout";
 import Pager from "../../components/Pager";
 import {
 	listContentFiles,
-	readContentFiles,
-	listAllContentFiles,
 	readAllContent,
 } from "../../lib/content-loader";
 const COUNT_PER_PAGE = 10;
@@ -50,7 +48,6 @@ export async function getStaticProps({ params }) {
 	const page = parseInt(params.page, 10);
 	const end = COUNT_PER_PAGE * page;
 	const start = end - COUNT_PER_PAGE;
-	// const posts = await readContentFiles({ fs });
 	const posts = await readAllContent({ fs });
 	return {
 		props: {
@@ -66,7 +63,6 @@ export async function getStaticProps({ params }) {
  */
 export async function getStaticPaths() {
 	const posts = await listContentFiles({ fs });
-	// const posts = await listAllContentFiles({ fs });
 	const pages = range(Math.ceil(posts.length / COUNT_PER_PAGE));
 	const paths = pages.map((page) => ({
 		params: { page: `${page}` },
