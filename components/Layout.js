@@ -76,7 +76,7 @@ const Layout = (props) => {
 					<div className={styles.profile}>
 						<div className="">
 							<Image
-								src="/images/profile.jpg"
+								src="/images/profile.webp"
 								className={styles.circle}
 								alt={`${myName}の自画像`}
 								width={150}
