@@ -10,6 +10,7 @@ export default function Post(params) {
 		<Layout title={params.title}>
 			<div className="post-meta">
 				<span>{params.published}</span>
+				<span className='category'>{params.category}</span>
 			</div>
 			<div
 				className="post-body"
