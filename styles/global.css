@@ -35,6 +35,9 @@ a {
 p {
 	margin: 10px 0;
 }
+main ol,ul {
+	padding-left: 30px;
+}
 main a:hover {
 	text-decoration: underline;
 }
