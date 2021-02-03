@@ -46,7 +46,7 @@ PNG や JPG から、WebP, SVG に変更するだけで大きく変わります�
 
 ### async・defer 属性の付与
 
-こちらはscripttタグにasync・defer属性を付与することによって、JavaScriptファイルを非同期で読み込むことにより、HTMLのレンダリングをストップすることなくJavaScriptのダウンロードを行うことができます。  
+こちらはscriptタグにasync・defer属性を付与することによって、JavaScriptファイルを非同期で読み込むことにより、HTMLのレンダリングをストップすることなくJavaScriptのダウンロードを行うことができます。  
 また2つの違いはJavaScriptを実行するタイミングです。deferは、HTMLの解析が終わるまでJavaScriptを実行しないのに対して、asyncは、JavaScriptのダウンロードが終わり次第JavaScriptを実行し、その間はHTML解析が止まります。  
 なので基本的にはdeferを使い、SNSのページプラグインのような他のファイルと独立したプログラムを実行する際にasyncを使用してみるのがいいと思います。
 
