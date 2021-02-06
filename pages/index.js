@@ -1,16 +1,19 @@
-import fs from "fs";
+// import fs from "fs";
 import Link from "next/link";
 import Layout from "../components/Layout";
 
 import { readAllContent } from "../lib/content-loader";
 
 export default function Home(props) {
-	const { posts, hasArchive } = props;
-	const random = [1,2,3,4,5,6,7,8,9,0, "a", "b", "c"]
+	// const { posts, hasArchive } = props;
+	const { blog, hasArchive } = props;
 	return (
 		<Layout>
-			{posts.map((post) => (
-				<div key={post.slug + random[Math.floor(Math.random() * 10)]} className="post-teaser">
+			{/* {posts.map((post) => (
+				<div
+					key={post.slug + random[Math.floor(Math.random() * 10)]}
+					className="post-teaser"
+				>
 					<h2>
 						{post.category === null ? (
 							<Link href="/posts/[id]" as={`/posts/${post.slug}`}>
@@ -29,6 +32,21 @@ export default function Home(props) {
 						<span>{post.published}</span>
 					</div>
 				</div>
+			))} */}
+			{blog.map((blog) => (
+				<div
+					key={blog.id}
+					className="post-teaser"
+				>
+					<h2>
+						<Link href={`/posts/${blog.id}`}>
+							<a>{blog.title}</a>
+						</Link>
+					</h2>
+					<div>
+						<span>{blog.publishedAt.slice(0, 10).replace(/-/g, '/')}</span>
+					</div>
+				</div>
 			))}
 
 			{hasArchive ? (
@@ -40,7 +58,7 @@ export default function Home(props) {
 			) : null}
 			<style jsx>{`
 				h2 {
-					margin-bottom: 5px;	
+					margin-bottom: 5px;
 				}
 				.home-archive {
 					margin-top: 50px;
@@ -50,14 +68,19 @@ export default function Home(props) {
 	);
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps = async () => {
 	const MAX_COUNT = 6;
-	const posts = await readAllContent({ fs });
-	const hasArchive = posts.length > MAX_COUNT;
+	const key = {
+		headers: { "X-API-KEY": process.env.API_KEY },
+	};
+	const data = await fetch("https://shou-blog.microcms.io/api/v1/blog", key)
+		.then((res) => res.json())
+		.catch(() => null);
+		const hasArchive = data.contents.length > MAX_COUNT;
 	return {
 		props: {
-			posts: posts.slice(0, MAX_COUNT),
-			hasArchive,
+			blog: data.contents,
+			hasArchive
 		},
 	};
-}
+};
