@@ -29,7 +29,12 @@ const Layout = (props) => {
 						</Link>
 					</h1>
 					<div className={styles.hamburger}>
-						<button onClick={isOpenedToggle} className={styles.btn} name="メニューボタン">
+						<button
+							onClick={isOpenedToggle}
+							className={styles.btn}
+							name="メニューボタン"
+							aria-label="メニューボタン"
+						>
 							{isOpened ? (
 								<>
 									<div className={styles.hamburgerCross}></div>
