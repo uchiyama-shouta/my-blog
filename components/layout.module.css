@@ -11,12 +11,10 @@
 	line-height: 90px;
 	margin: 0 auto;
 }
-
 .siteTitle {
 	height: 80px;
 	margin: 5px 0;
 }
-
 .hamburger {
 	display: none;
 	width: 40px;
@@ -56,6 +54,9 @@
    transform-origin: 50% 50%;
 }
 .hamburgerCross:nth-child(2) {
+	display: none;
+}
+.hamburgerCross:nth-child(3) {
    transform: rotate(135deg);
    transform-origin: 50% 50%;
 }
