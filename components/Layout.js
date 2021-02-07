@@ -35,10 +35,18 @@ const Layout = (props) => {
 							name="メニューボタン"
 							aria-label="メニューボタン"
 						>
-							
-							<div className={isOpened ? styles.hamburgerCross : styles.hamburgerLine} />
-							<div className={isOpened ? styles.hamburgerCross : styles.hamburgerLine} />
-							<div className={isOpened ? styles.hamburgerCross : styles.hamburgerLine} />
+							{isOpened ? (
+								<>
+									<div className={styles.hamburgerCross} />
+									<div className={styles.hamburgerCross} />
+								</>
+							) : (
+								<>
+									<div className={styles.hamburgerLine} />
+									<div className={styles.hamburgerLine} />
+									<div className={styles.hamburgerLine} />
+								</>
+							)}
 						</button>
 					</div>
 				</div>
