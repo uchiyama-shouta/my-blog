@@ -1,43 +1,18 @@
-// import fs from "fs";
 import Link from "next/link";
 import Layout from "../components/Layout";
 
 import { readAllContent } from "../lib/content-loader";
 
 export default function Home(props) {
-	// const { posts, hasArchive } = props;
 	const { blog, hasArchive } = props;
 	return (
 		<Layout>
-			{/* 
-					<h2>
-						{post.category === null ? (
-							<Link href="/posts/[id]" as={`/posts/${post.slug}`}>
-								<a>{post.title}</a>
-							</Link>
-						) : (
-							<Link
-								href="/posts/categories/[category]/[id]"
-								as={`/posts/categories/${post.category}/${post.slug}`}
-							>
-								<a>{post.title}</a>
-							</Link>
-						)}
-					</h2>
-				</div>
-			))} */}
 			{blog.map((blog) => (
 				<div key={blog.id} className="post-teaser">
 					<h2>
-						{/* {blog.name ? (
-							<Link href={`/posts/${blog.name.name}/${blog.id}`}>
-								<a>{blog.title}</a>
-							</Link>
-						) : ( */}
-							<Link href={`/posts/${blog.id}`}>
-								<a>{blog.title}</a>
-							</Link>
-						{/* )} */}
+						<Link href={`/posts/${blog.id}`}>
+							<a>{blog.title}</a>
+						</Link>
 					</h2>
 					<div>
 						<span>{blog.publishedAt.slice(0, 10).replace(/-/g, "/")}</span>
