@@ -1,28 +1,28 @@
-// import fs from "fs";
-import path from "path";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 
 export default function Post(props) {
 	const { blog } = props;
 	return (
-		<Layout title={blog.title}>
-			<div className="post-meta">
-				<span>{blog.publishedAt.slice(0, 10).replace(/-/g, "/")}</span>
-			</div>
-			<div
-				className="post-body"
-				dangerouslySetInnerHTML={{ __html: blog.body }}
-			/>
-			<Link href="/">
-				<a>back to home</a>
-			</Link>
-			<style jsx>{`
-				.post-body {
-					margin-bottom: 70px;
-				}
-			`}</style>
-		</Layout>
+		<>
+			<Layout title={blog.title}>
+				<div className="post-meta">
+					<span>{blog.publishedAt.slice(0, 10).replace(/-/g, "/")}</span>
+				</div>
+				<div
+					className="post-body"
+					dangerouslySetInnerHTML={{ __html: blog.body }}
+				/>
+				<Link href="/">
+					<a>back to home</a>
+				</Link>
+				<style jsx>{`
+					.post-body {
+						margin-bottom: 70px;
+					}
+				`}</style>
+			</Layout>
+		</>
 	);
 }
 
@@ -41,7 +41,6 @@ export const getStaticProps = async (context) => {
 		},
 	};
 };
-
 export const getStaticPaths = async () => {
 	const apiUrl = "https://shou-blog.microcms.io/api/v1/blog";
 	const key = {

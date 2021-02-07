@@ -49,17 +49,17 @@ const Layout = (props) => {
 				<div className={isOpened ? styles.show : styles.categories}>
 					<ul>
 						<li>
-							<Link href="/posts/categories/programming/list">
+							<Link href="/posts/categories/programming">
 								<a>programming</a>
 							</Link>
 						</li>
 						<li>
-							<Link href="/posts/categories/life/list">
+							<Link href="/posts/categories/life">
 								<a>life</a>
 							</Link>
 						</li>
 						<li>
-							<Link href="/posts/categories/business/list">
+							<Link href="/posts/categories/business">
 								<a>business</a>
 							</Link>
 						</li>
