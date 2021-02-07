@@ -2,7 +2,6 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 import Pager from "../../components/Pager";
 
-const COUNT_PER_PAGE = 10;
 export default function Archive(props) {
 	const { posts, page, total, perPage } = props;
 	return (
@@ -25,7 +24,7 @@ export default function Archive(props) {
 				perPage={perPage}
 				href="/archive/[page]"
 				asCallback={(page) => `/archive/${page}`}
-			/>
+				/>
 			<style jsx>{`
 				.post-teaser {
 					margin-bottom: 2em;
@@ -33,7 +32,7 @@ export default function Archive(props) {
 				.post-teaser h2 a {
 					text-decoration: none;
 				}
-			`}</style>
+				`}</style>
 		</Layout>
 	);
 }
@@ -41,6 +40,7 @@ export default function Archive(props) {
  * ページコンポーネントで使用する値を用意する
  */
 export async function getStaticProps({ params }) {
+	const COUNT_PER_PAGE = 10;
 	const page = parseInt(params.page, 10);
 	const end = COUNT_PER_PAGE * page;
 	const start = end - COUNT_PER_PAGE;
@@ -63,6 +63,7 @@ export async function getStaticProps({ params }) {
  * 有効な URL パラメータを全件返す
  */
 export async function getStaticPaths() {
+	const COUNT_PER_PAGE = 10;
 	const key = {
 		headers: { "X-API-KEY": process.env.API_KEY },
 	};
