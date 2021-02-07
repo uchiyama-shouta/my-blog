@@ -1,20 +1,19 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { GA_TRACKING_ID } from '../lib/gtag'
+import { GA_TRACKING_ID } from "../lib/gtag";
 
 class MyDocument extends Document {
 	render() {
 		return (
 			<Html lang="ja">
 				<Head>
-					{ /* gtag / Google Analytics を利用する */}
+					{/* gtag / Google Analytics を利用する */}
 					{
-					GA_TRACKING_ID && <script
-						async
-						src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-					/>
+						<script
+							async
+							src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+						/>
 					}
-					{
-						GA_TRACKING_ID && <script
+					<script
 						dangerouslySetInnerHTML={{
 							__html: `
 								window.dataLayer = window.dataLayer || [];
@@ -23,10 +22,9 @@ class MyDocument extends Document {
 								gtag('config', '${GA_TRACKING_ID}', {
 								page_path: window.location.pathname,
 								});
-							`,
+						`,
 						}}
-						/>
-					}
+					/>
 				</Head>
 				<body>
 					<Main />
