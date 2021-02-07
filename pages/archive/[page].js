@@ -1,25 +1,21 @@
-import fs from "fs";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import Pager from "../../components/Pager";
-import {
-	listContentFiles,
-	readAllContent,
-} from "../../lib/content-loader";
+
 const COUNT_PER_PAGE = 10;
 export default function Archive(props) {
 	const { posts, page, total, perPage } = props;
 	return (
 		<Layout title="アーカイブ">
 			{posts.map((post) => (
-				<div key={post.slug} className="post-teaser">
+				<div key={post.id} className="post-teaser">
 					<h2>
-						<Link href="/posts/[id]" as={`/posts/${post.slug}`}>
+						<Link href="/posts/[id]" as={`/posts/${post.id}`}>
 							<a>{post.title}</a>
 						</Link>
 					</h2>
 					<div>
-						<span>{post.published}</span>
+						<span>{post.publishedAt.slice(0,10).replace(/-/g, '/')}</span>
 					</div>
 				</div>
 			))}
@@ -48,12 +44,17 @@ export async function getStaticProps({ params }) {
 	const page = parseInt(params.page, 10);
 	const end = COUNT_PER_PAGE * page;
 	const start = end - COUNT_PER_PAGE;
-	const posts = await readAllContent({ fs });
+	const key = {
+		headers: { "X-API-KEY": process.env.API_KEY },
+	};
+	const data = await fetch("https://shou-blog.microcms.io/api/v1/blog", key)
+		.then((res) => res.json())
+		.catch(() => null);
 	return {
 		props: {
-			posts: posts.slice(start, end),
+			posts: data.contents.slice(start, end),
 			page,
-			total: posts.length,
+			total: data.contents.length,
 			perPage: COUNT_PER_PAGE,
 		},
 	};
@@ -62,8 +63,13 @@ export async function getStaticProps({ params }) {
  * 有効な URL パラメータを全件返す
  */
 export async function getStaticPaths() {
-	const posts = await listContentFiles({ fs });
-	const pages = range(Math.ceil(posts.length / COUNT_PER_PAGE));
+	const key = {
+		headers: { "X-API-KEY": process.env.API_KEY },
+	};
+	const data = await fetch("https://shou-blog.microcms.io/api/v1/blog", key)
+		.then((res) => res.json())
+		.catch(() => null);
+	const pages = range(Math.ceil(data.contents.length / COUNT_PER_PAGE));
 	const paths = pages.map((page) => ({
 		params: { page: `${page}` },
 	}));

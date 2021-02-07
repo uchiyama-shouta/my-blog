@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
 
-import { readAllContent } from "../lib/content-loader";
-
 export default function Home(props) {
 	const { blog, hasArchive } = props;
 	return (
