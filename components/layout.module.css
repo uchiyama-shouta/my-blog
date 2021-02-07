@@ -54,9 +54,6 @@
    transform-origin: 50% 50%;
 }
 .hamburgerCross:nth-child(2) {
-	display: none;
-}
-.hamburgerCross:nth-child(3) {
    transform: rotate(135deg);
    transform-origin: 50% 50%;
 }
