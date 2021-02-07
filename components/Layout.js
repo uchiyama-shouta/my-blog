@@ -29,7 +29,7 @@ const Layout = (props) => {
 						</Link>
 					</h1>
 					<div className={styles.hamburger}>
-						<button onClick={isOpenedToggle} className={styles.btn}>
+						<button onClick={isOpenedToggle} className={styles.btn} name="メニューボタン">
 							{isOpened ? (
 								<>
 									<div className={styles.hamburgerCross}></div>
