@@ -14,7 +14,7 @@ export default function Archive(props) {
 						</Link>
 					</h2>
 					<div>
-						<span>{post.publishedAt.slice(0,10).replace(/-/g, '/')}</span>
+						<span>{post.publishedAt.slice(0, 10).replace(/-/g, "/")}</span>
 					</div>
 				</div>
 			))}
@@ -24,7 +24,7 @@ export default function Archive(props) {
 				perPage={perPage}
 				href="/archive/[page]"
 				asCallback={(page) => `/archive/${page}`}
-				/>
+			/>
 			<style jsx>{`
 				.post-teaser {
 					margin-bottom: 2em;
@@ -32,13 +32,10 @@ export default function Archive(props) {
 				.post-teaser h2 a {
 					text-decoration: none;
 				}
-				`}</style>
+			`}</style>
 		</Layout>
 	);
 }
-/**
- * ページコンポーネントで使用する値を用意する
- */
 export async function getStaticProps({ params }) {
 	const COUNT_PER_PAGE = 10;
 	const page = parseInt(params.page, 10);
@@ -59,9 +56,6 @@ export async function getStaticProps({ params }) {
 		},
 	};
 }
-/**
- * 有効な URL パラメータを全件返す
- */
 export async function getStaticPaths() {
 	const COUNT_PER_PAGE = 10;
 	const key = {
@@ -76,9 +70,6 @@ export async function getStaticPaths() {
 	}));
 	return { paths: paths, fallback: false };
 }
-/**
- * ユーティリティ: 1 から指定された整数までを格納した Array を返す
- */
 function range(stop) {
 	return Array.from({ length: stop }, (_, i) => i + 1);
 }

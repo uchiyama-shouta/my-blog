@@ -74,7 +74,7 @@ const Layout = (props) => {
 
 			<div className={styles.main}>
 				<main className={styles.content}>
-					{title ? <h1 className={styles.page}>{title}</h1> : ``}
+					{title ? <h1 className={styles.page}>{title}</h1> : ''}
 					<div className="page-main">{children}</div>
 				</main>
 				<aside className={styles.sidebar}>
