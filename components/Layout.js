@@ -83,6 +83,7 @@ const Layout = (props) => {
 							<Image
 								src="/images/profile.webp"
 								className={styles.circle}
+								quality={60}
 								alt={`${myName}の自画像`}
 								width={150}
 								height={150}
