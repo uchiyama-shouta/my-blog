@@ -83,7 +83,7 @@ const Layout = (props) => {
 							<Image
 								src="/images/profile.webp"
 								className={styles.circle}
-								quality={60}
+								quality={50}
 								alt={`${myName}の自画像`}
 								width={150}
 								height={150}
@@ -91,8 +91,7 @@ const Layout = (props) => {
 							<p className={styles.myName}>{myName}</p>
 							<p className={styles.introduceMyself}>
 								Next.jsを学び始めた、現役高校生のしょうたです。
-								<br />
-								<br />
+								<br /><br />
 								「理想の人生を生きる」をモットーに日々勉強しています。
 								現在の目標はNext.jsを使って自分のサービス・アプリを作ることです。
 							</p>

@@ -6,7 +6,6 @@ class MyDocument extends Document {
 		return (
 			<Html lang="ja">
 				<Head>
-					{/* gtag / Google Analytics を利用する */}
 					{
 						<script
 							async
