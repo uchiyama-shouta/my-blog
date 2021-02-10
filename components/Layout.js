@@ -7,7 +7,6 @@ import { useState } from "react";
 const Layout = (props) => {
 	const [isOpened, setIsOpend] = useState(false);
 	const { title, children } = props;
-	const myName = "翔太";
 	const siteTitle = "しょうBlog";
 
 	const isOpenedToggle = () => {
@@ -50,7 +49,7 @@ const Layout = (props) => {
 						</button>
 					</div>
 				</div>
-				<div className={!isOpened && styles.blackLine}></div>
+				<div className={!isOpened && styles.blackLine} />
 				<div className={isOpened ? styles.show : styles.categories}>
 					<ul>
 						<li>
@@ -84,11 +83,11 @@ const Layout = (props) => {
 								src="/images/profile.webp"
 								className={styles.circle}
 								quality={50}
-								alt={`${myName}の自画像`}
+								alt='内山 翔太の自画像'
 								width={150}
 								height={150}
 							/>
-							<p className={styles.myName}>{myName}</p>
+							<p className={styles.myName}>内山 翔太</p>
 							<p className={styles.introduceMyself}>
 								Next.jsを学び始めた、現役高校生のしょうたです。
 								<br /><br />
