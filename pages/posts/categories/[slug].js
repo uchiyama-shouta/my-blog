@@ -3,10 +3,9 @@ import Layout from "../../../components/Layout";
 
 export default function Post(props) {
 	const { blog, hasArchive } = props;
-	const description = `${blog.title} | ${blog.body.slice(0, 80)}...`;
 	return (
 		<>
-			<Layout title={blog.title} description={description}>
+			<Layout title={blog.title} description='カテゴリー別記事一覧...'>
 				{blog.map((blog) => (
 					<div key={blog.id} className="post-teaser">
 						<h2>
