@@ -9,6 +9,9 @@ body {
 html {
 	width: 100vw;
 }
+* {
+	box-sizing: border-box;
+}
 img,
 iframe {
 	max-width: 100%;
@@ -21,9 +24,6 @@ h5,
 h6 {
 	font-family: Montserrat, -apple-system, "Segoe UI", "Helvetica Neue",
 		"Hiragino Kaku Gothic ProN", メイリオ, meiryo, sans-serif;
-}
-* {
-	box-sizing: border-box;
 }
 h2 {
 	margin-bottom: 5px;
