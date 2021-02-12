@@ -5,7 +5,7 @@ export default function Post(props) {
 	const { blog, hasArchive } = props;
 	return (
 		<>
-			<Layout title={blog.title} description='カテゴリー別記事一覧...'>
+			<Layout title={blog.title} description='カテゴリー別記事一覧'>
 				{blog.map((blog) => (
 					<div key={blog.id} className="post-teaser">
 						<h2>
