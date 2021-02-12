@@ -9,27 +9,40 @@ const Pager = (props) => {
 		nextPage = page + 1;
 	}
 	return (
-		<div className={styles.pager}>
-			<span className={styles.pagerItem}>
-				{prevPage ? (
-					<Link href={href} as={asCallback(prevPage)}>
-						<a>{prevPage}</a>
-					</Link>
-				) : (
-					``
-				)}
-			</span>
-			<span className={styles.pagerItem}>{page}</span>
-			<span className={styles.pagerItem}>
-				{nextPage ? (
-					<Link href={href} as={asCallback(nextPage)}>
-						<a>{nextPage}</a>
-					</Link>
-				) : (
-					null
-				)}
-			</span>
-		</div>
+		<>
+			<div className={styles.pager}>
+				<span className={styles.pagerItem}>
+					{prevPage ? (
+						<Link href={href} as={asCallback(prevPage)}>
+							<a>{prevPage}</a>
+						</Link>
+					) : (
+						``
+					)}
+				</span>
+				<span className={styles.pagerItem}>{page}</span>
+				<span className={styles.pagerItem}>
+					{nextPage ? (
+						<Link href={href} as={asCallback(nextPage)}>
+							<a>{nextPage}</a>
+						</Link>
+					) : (
+						null
+					)}
+				</span>
+			</div>
+			<style jsx>{`
+				.pager {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					flex-wrap: nowrap;
+				}
+				.pagerItem {
+					margin: 0 1em;
+				}				
+			`}</style>
+		</>
 	);
 };
 export default Pager;
