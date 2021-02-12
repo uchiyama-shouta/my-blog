@@ -5,7 +5,7 @@ import Pager from "../../components/Pager";
 export default function Archive(props) {
 	const { posts, page, total, perPage } = props;
 	return (
-		<Layout title="アーカイブ">
+		<Layout title="アーカイブ" description='アーカイブ'>
 			{posts.map((post) => (
 				<div key={post.id} className="post-teaser">
 					<h2>

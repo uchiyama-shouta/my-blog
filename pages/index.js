@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 export default function Home(props) {
 	const { blog, hasArchive } = props;
 	return (
-		<Layout>
+		<Layout description='記事一覧ページ'>
 			{blog.map((blog) => (
 				<div key={blog.id} className="post-teaser">
 					<h2>

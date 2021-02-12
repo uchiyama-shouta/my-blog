@@ -3,9 +3,10 @@ import Layout from "../../components/Layout";
 
 export default function Post(props) {
 	const { blog } = props;
+	const description = `${blog.title} | ${blog.body.slice(0, 80)}...`;
 	return (
 		<>
-			<Layout title={blog.title}>
+			<Layout title={blog.title} description={description}>
 				<div className="post-meta">
 					<span>{blog.publishedAt.slice(0, 10).replace(/-/g, "/")}</span>
 				</div>

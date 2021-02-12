@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const Layout = (props) => {
 	const [isOpened, setIsOpend] = useState(false);
-	const { title, children } = props;
+	const { title, children, description } = props;
 	const siteTitle = "しょうBlog";
 
 	const isOpenedToggle = () => {
@@ -17,6 +17,7 @@ const Layout = (props) => {
 		<div className={styles.page}>
 			<Head>
 				<title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
+				<meta name="description" content={description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
