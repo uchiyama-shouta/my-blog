@@ -9,8 +9,8 @@ const Pager = (props) => {
 	}
 	return (
 		<>
-			<div className={styles.pager}>
-				<span className={styles.pagerItem}>
+			<div className='.pager'>
+				<span className='.pagerItem'>
 					{prevPage ? (
 						<Link href={href} as={asCallback(prevPage)}>
 							<a>{prevPage}</a>
@@ -19,8 +19,8 @@ const Pager = (props) => {
 						``
 					)}
 				</span>
-				<span className={styles.pagerItem}>{page}</span>
-				<span className={styles.pagerItem}>
+				<span className='.pagerItem'>{page}</span>
+				<span className='.pagerItem'>
 					{nextPage ? (
 						<Link href={href} as={asCallback(nextPage)}>
 							<a>{nextPage}</a>
