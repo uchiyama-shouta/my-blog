@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./paper.module.css";
 
 const Pager = (props) => {
 	const { total, page, perPage, href, asCallback } = props;
