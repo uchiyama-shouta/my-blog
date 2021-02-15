@@ -88,7 +88,6 @@
 	min-height: 20px;
 	background-color: #222;
 }
-
 .main {
 	display: flex;
 	justify-content: space-between;
@@ -101,32 +100,6 @@
 	max-width: 850px;
    min-width: 330px;
    padding-right: 5px;
-}
-.sidebar {
-	width: 330px;
-	min-width: 330px;
-	text-align: center;
-}
-.profile {
-	width: 95%;
-	padding: 50px 30px;
-	border: 1px solid #707070;
-}
-.myName {
-	font-size: 30px;
-	margin-top: 40px;
-}
-.introduceMyself {
-	font-size: 14px;
-	width: 90%;
-	margin: 0 auto;
-	margin-top: 30px;
-	text-align: left;
-}
-.circle {
-	border-radius: 9999px;
-	width: 150px;
-	height: 150px;
 }
 .siteTitle a {
 	color: inherit;

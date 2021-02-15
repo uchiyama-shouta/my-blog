@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import styles from "./layout.module.css";
+import Aside from './Aside'
 import { useState } from "react";
 
 export const config = { amp: true };
@@ -79,27 +79,7 @@ const Layout = (props) => {
 					{title && <h1 className={styles.page}>{title}</h1>}
 					<div className="page-main">{children}</div>
 				</main>
-				<aside className={styles.sidebar}>
-					<div className={styles.profile}>
-						<div className="">
-							<Image
-								src="/images/profile.webp"
-								className={styles.circle}
-								quality={50}
-								alt='内山 翔太の自画像'
-								width={150}
-								height={150}
-							/>
-							<p className={styles.myName}>内山 翔太</p>
-							<p className={styles.introduceMyself}>
-								Next.jsを学び始めた、現役高校生のしょうたです。
-								<br /><br />
-								「理想の人生を生きる」をモットーに日々勉強しています。
-								現在の目標はNext.jsを使って自分のサービス・アプリを作ることです。
-							</p>
-						</div>
-					</div>
-				</aside>
+				<Aside />
 			</div>
 			<footer className={styles.footer}>&copy; {siteTitle}</footer>
 		</div>
