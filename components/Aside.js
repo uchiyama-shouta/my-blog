@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {circle} from "./Aside.module.css";
+import { circle } from "./Aside.module.css";
 
 const Aside = () => {
 	return (
@@ -37,7 +37,7 @@ const Aside = () => {
 					padding: 50px 30px;
 					border: 1px solid #707070;
 				}
-				
+
 				.myName {
 					font-size: 30px;
 					margin-top: 40px;

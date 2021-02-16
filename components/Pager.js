@@ -9,8 +9,8 @@ const Pager = (props) => {
 	}
 	return (
 		<>
-			<div className='.pager'>
-				<span className='.pagerItem'>
+			<div className="pager">
+				<span className="pagerItem">
 					{prevPage ? (
 						<Link href={href} as={asCallback(prevPage)}>
 							<a>{prevPage}</a>
@@ -19,15 +19,13 @@ const Pager = (props) => {
 						``
 					)}
 				</span>
-				<span className='.pagerItem'>{page}</span>
-				<span className='.pagerItem'>
+				<span className="pagerItem">{page}</span>
+				<span className="pagerItem">
 					{nextPage ? (
 						<Link href={href} as={asCallback(nextPage)}>
 							<a>{nextPage}</a>
 						</Link>
-					) : (
-						null
-					)}
+					) : null}
 				</span>
 			</div>
 			<style jsx>{`
@@ -36,10 +34,11 @@ const Pager = (props) => {
 					flex-direction: row;
 					justify-content: center;
 					flex-wrap: nowrap;
+					padding-top: 20px;
 				}
 				.pagerItem {
 					margin: 0 1em;
-				}				
+				}
 			`}</style>
 		</>
 	);

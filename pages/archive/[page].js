@@ -1,22 +1,13 @@
-import Link from "next/link";
 import Layout from "../../components/Layout";
 import Pager from "../../components/Pager";
+import Article from "../../components/Article";
 
 export default function Archive(props) {
-	const { posts, page, total, perPage } = props;
+	const { blog, page, total, perPage } = props;
 	return (
-		<Layout title="アーカイブ" description='アーカイブ'>
-			{posts.map((post) => (
-				<div key={post.id} className="post-teaser">
-					<h2>
-						<Link href="/posts/[id]" as={`/posts/${post.id}`}>
-							<a>{post.title}</a>
-						</Link>
-					</h2>
-					<div>
-						<span>{post.publishedAt.slice(0, 10).replace(/-/g, "/")}</span>
-					</div>
-				</div>
+		<Layout title="アーカイブ" description="アーカイブ">
+			{blog.map((blog) => (
+				<Article blog={blog} />
 			))}
 			<Pager
 				page={page}
@@ -49,7 +40,7 @@ export async function getStaticProps({ params }) {
 		.catch(() => null);
 	return {
 		props: {
-			posts: data.contents.slice(start, end),
+			blog: data.contents.slice(start, end),
 			page,
 			total: data.contents.length,
 			perPage: COUNT_PER_PAGE,

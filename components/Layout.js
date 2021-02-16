@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "./layout.module.css";
-import Aside from './Aside'
+import Aside from "./Aside";
 import { useState } from "react";
 
 export const config = { amp: true };

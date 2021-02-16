@@ -1,22 +1,13 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
+import Article from "../components/Article";
 
 export default function Home(props) {
 	const { blog, hasArchive } = props;
 	return (
-		<Layout description='記事一覧ページ'>
+		<Layout description="記事一覧ページ">
 			{blog.map((blog) => (
-				<div key={blog.id} className="post-teaser">
-					<h2>
-						<Link href={`/posts/${blog.id}`}>
-							<a>{blog.title}</a>
-						</Link>
-					</h2>
-					<div>
-						<span>{blog.publishedAt.slice(0, 10).replace(/-/g, "/")}</span>
-						<span className="category">{blog.name && blog.name.name}</span>
-					</div>
-				</div>
+				<Article blog={blog} />
 			))}
 
 			{hasArchive ? (
@@ -27,9 +18,6 @@ export default function Home(props) {
 				</div>
 			) : null}
 			<style jsx>{`
-				h2 {
-					margin-bottom: 5px;
-				}
 				.home-archive {
 					margin-top: 50px;
 				}
