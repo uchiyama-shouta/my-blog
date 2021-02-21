@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
 import Article from "../components/Article";
+export const config = {
+	amp: true,
+};
 
 export default function Home(props) {
 	const { blog, hasArchive } = props;
