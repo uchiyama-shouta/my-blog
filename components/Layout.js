@@ -4,8 +4,6 @@ import styles from "./layout.module.css";
 import Aside from "./Aside";
 import { useState } from "react";
 
-export const config = { amp: true };
-
 const Layout = (props) => {
 	const [isOpened, setIsOpend] = useState(false);
 	const { title, children, description } = props;
