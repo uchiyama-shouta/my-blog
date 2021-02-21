@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const Layout = (props) => {
 	const [isOpened, setIsOpend] = useState(false);
-	const { title, children, description, isAmp } = props;
+	const { title, children, description } = props;
 	const siteTitle = "しょうBlog";
 
 	const isOpenedToggle = () => {
@@ -77,7 +77,7 @@ const Layout = (props) => {
 					{title && <h1 className={styles.page}>{title}</h1>}
 					<div className="page-main">{children}</div>
 				</main>
-				<Aside isAmp={isAmp} />
+				<Aside />
 			</div>
 			<footer className={styles.footer}>&copy; {siteTitle}</footer>
 		</div>

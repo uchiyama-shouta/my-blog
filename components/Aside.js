@@ -1,30 +1,20 @@
 import Image from "next/image";
 import { circle } from "./Aside.module.css";
 
-const Aside = ({ isAmp }) => {
+const Aside = () => {
 	return (
 		<>
 			<aside className="sidebar">
 				<div className="profile">
 					<div className="">
-						{isAmp ? (
-							<amp-img
-								width="150"
-								height="150"
-								src="/images/profile.webp"
-								alt="内山 翔太の自画像"
-								layout="responsive"
-							/>
-						) : (
-							<Image
-								src="/images/profile.webp"
-								className={circle}
-								quality={50}
-								alt="内山 翔太の自画像"
-								width={150}
-								height={150}
-							/>
-						)}
+						<Image
+							src="/images/profile.webp"
+							className={circle}
+							quality={50}
+							alt="内山 翔太の自画像"
+							width={150}
+							height={150}
+						/>
 						<p className="myName">内山 翔太</p>
 						<p className="introduceMyself">
 							Next.jsを学び始めた、現役高校生のしょうたです。

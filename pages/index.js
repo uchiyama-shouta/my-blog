@@ -1,14 +1,11 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
 import Article from "../components/Article";
-import { useAmp } from "next/amp";
-export const config = { amp: "hybrid" };
 
 export default function Home(props) {
-	const isAmp = useAmp();
 	const { blog, hasArchive } = props;
 	return (
-		<Layout description="記事一覧ページ" isAmp={isAmp}>
+		<Layout description="記事一覧ページ">
 			{blog.map((blog) => (
 				<Article blog={blog} />
 			))}
